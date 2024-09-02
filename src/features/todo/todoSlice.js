@@ -5,6 +5,7 @@ const todoSlice = createSlice({
   initialState: {
     todos: [],
   },
+  //local states
   reducers: {
     addTodo: (state, action) => {
       const newTodo = {
