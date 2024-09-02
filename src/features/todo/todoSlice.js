@@ -57,6 +57,7 @@ const todoSlice = createSlice({
     builder
       .addCase(getAsyncTodos.pending, (state) => {
         state.loading = true;
+        state.todos = [];
         state.error = "";
       })
       .addCase(getAsyncTodos.fulfilled, (state, action) => {
