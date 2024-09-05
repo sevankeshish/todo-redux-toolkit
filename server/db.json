@@ -1,3 +1,19 @@
 {
-    "todos" :[]
+  "todos": [
+    {
+      "id": 1725501847712,
+      "title": "wrt",
+      "completed": false
+    },
+    {
+      "id": 1725501849399,
+      "title": "45",
+      "completed": false
+    },
+    {
+      "id": 1725502341423,
+      "title": "rrr",
+      "completed": false
+    }
+  ]
 }
