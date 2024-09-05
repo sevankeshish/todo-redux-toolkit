@@ -35,8 +35,8 @@ const AddTodoForm = () => {
           setValue(event.target.value);
         }}
       />
-      <button type="submit" className="btn btn-primary mt-1">
-        Submit
+      <button disabled={loading} type="submit" className="btn btn-primary mt-1">
+        {loading ? "Submitting..." : "Submit"}
       </button>
     </form>
   );
