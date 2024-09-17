@@ -27,7 +27,7 @@ export const addAsyncTodo = createAsyncThunk(
     try {
       const response = await api.post("/todos", {
         title: payload.title,
-        id: Date.now(),
+        id: String(Date.now()),
         completed: false,
       });
       return response.data;
@@ -74,7 +74,7 @@ const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action) => {
       const newTodo = {
-        id: Date.now(),
+        id: String(Date.now()),
         title: action.payload.title,
         completed: false,
       };
@@ -121,14 +121,16 @@ const todoSlice = createSlice({
       })
       .addCase(deleteAsyncTodo.fulfilled, (state, action) => {
         state.todos = state.todos.filter(
-          (todo) => todo.id !== Number(action.payload.id)
+          (todo) => todo.id !== action.payload.id
         );
       })
       .addCase(toggleAsyncTodo.fulfilled, (state, action) => {
         const selectedTodo = state.todos.find(
-          (todo) => todo.id === Number(action.payload.id)
+          (todo) => todo.id === action.payload.id
         );
-        selectedTodo.completed = action.payload.completed;
+        if (selectedTodo) {
+          selectedTodo.completed = action.payload.completed;
+        }
       });
   },
 });
